@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/10/04 09:42:24 by carfern2          #+#    #+#             */
+/*   Updated: 2024/10/15 13:54:07 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strdup(const char *s)
 {
-	t_game	game;
+	char	*copy;
+	int		i;
 
-	if (argc != 2)
+	i = 0;
+	copy = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (!copy)
+		return (NULL);
+	while (s[i])
 	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
+		copy[i] = s[i];
+		i++;
 	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
+	copy[i] = '\0';
+	return (copy);
 }

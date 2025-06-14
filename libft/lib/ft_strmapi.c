@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/10/07 14:37:44 by carfern2          #+#    #+#             */
+/*   Updated: 2024/10/08 14:45:54 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_game	game;
+	char			*result;
+	unsigned int	i;
+	size_t			len;
 
-	if (argc != 2)
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
+		result[i] = f(i, s[i]);
+		i++;
 	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
+	result[i] = '\0';
+	return (result);
 }

@@ -30,14 +30,16 @@ void	read_map(char *file, t_game *game)
 	line = get_next_line(fd);
 	while (line)
 	{
+		size_t len = ft_strlen(line);
+		if (len > 0 && line[len - 1] == '\n')
+			line[len - 1] = '\0'; 
 		map[i++] = ft_strdup(line);
 		free(line);
-		i++;
 		line = get_next_line(fd);
 	}
 	map[i] = NULL;
 	close(fd);
 	game->map = map;
 	game->height = i;
-	game->width = ft_strlen(map[0]) - 1;
+	game->width = ft_strlen(map[0]);
 }

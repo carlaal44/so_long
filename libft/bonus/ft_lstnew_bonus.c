@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/10/18 09:02:58 by carfern2          #+#    #+#             */
+/*   Updated: 2025/05/22 08:40:02 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-	t_game	game;
+	t_list	*list;
 
-	if (argc != 2)
-	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
-	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
+	list = ft_calloc(1, sizeof(t_list));
+	if (!list)
+		return (NULL);
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

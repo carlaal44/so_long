@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/09/18 10:50:42 by carfern2          #+#    #+#             */
+/*   Updated: 2024/10/04 08:59:15 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_strlen(const char *str)
 {
-	t_game	game;
+	int	lenght;
 
-	if (argc != 2)
-	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
-	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
+	lenght = 0;
+	while (str[lenght] != '\0')
+		lenght++;
+	return (lenght);
 }

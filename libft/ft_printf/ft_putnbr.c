@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/12/04 18:27:45 by carfern2          #+#    #+#             */
+/*   Updated: 2024/12/07 15:43:53 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv)
+int	ft_putnbr(int nb)
 {
-	t_game	game;
+	int	count;
 
-	if (argc != 2)
+	count = 0;
+	if (nb == -2147483648)
 	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
+		count += ft_putstr("-2147483648");
+		return (count);
 	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
+	if (nb < 0)
+	{
+		count += ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+		count += ft_putnbr(nb / 10);
+	count += ft_putchar((nb % 10) + '0');
+	return (count);
 }

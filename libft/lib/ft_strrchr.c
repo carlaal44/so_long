@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/09/25 16:38:48 by carfern2          #+#    #+#             */
+/*   Updated: 2024/10/15 14:50:56 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_game	game;
+	int				i;
+	unsigned char	character;
 
-	if (argc != 2)
+	i = ft_strlen(s) - 1;
+	character = (unsigned char)c;
+	if (character == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	while (i >= 0)
 	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
+		if (s[i] == character)
+			return ((char *)(i + s));
+		i--;
 	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
+	return (NULL);
 }

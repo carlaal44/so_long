@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/09/27 09:38:45 by carfern2          #+#    #+#             */
+/*   Updated: 2024/10/15 14:29:24 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_game	game;
+	size_t			i;
+	unsigned char	*a;
+	unsigned char	*b;
 
-	if (argc != 2)
+	i = 0;
+	a = (unsigned char *)s1;
+	b = (unsigned char *)s2;
+	while (i < n)
 	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
+		if (a[i] != b[i])
+			return (a[i] - b[i]);
+		i++;
 	}
-	read_map(argv[1], &game);
-	start_game(&game);
 	return (0);
 }

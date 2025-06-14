@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/09/23 10:50:38 by carfern2          #+#    #+#             */
+/*   Updated: 2024/10/04 08:58:58 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	t_game	game;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-	if (argc != 2)
+	if (!dst && !src)
+		return (NULL);
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	if (s < d && d < s + n)
 	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
+		while (n--)
+			d[n] = s[n];
 	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
+	else
+	{
+		while (n--)
+			*d++ = *s++;
+	}
+	return (dst);
 }

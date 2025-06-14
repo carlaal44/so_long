@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/12/04 18:24:08 by carfern2          #+#    #+#             */
+/*   Updated: 2024/12/07 15:43:57 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv)
+int	ft_putchar(int c)
 {
-	t_game	game;
-
-	if (argc != 2)
-	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
-	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
+	if (write(1, &c, 1) != 1)
+		return (-1);
+	return (1);
 }

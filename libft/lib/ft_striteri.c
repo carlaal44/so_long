@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/10/07 14:41:35 by carfern2          #+#    #+#             */
+/*   Updated: 2024/10/15 14:38:38 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_game	game;
+	unsigned int	i;
 
-	if (argc != 2)
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
+		f(i, &s[i]);
+		i++;
 	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
 }

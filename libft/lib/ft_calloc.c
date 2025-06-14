@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Created: 2024/10/02 16:43:12 by carfern2          #+#    #+#             */
+/*   Updated: 2024/10/16 16:25:08 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_calloc(size_t num, size_t n)
 {
-	t_game	game;
+	void			*ptr;
+	size_t			total_size;
+	size_t			i;
+	unsigned char	*p;
 
-	if (argc != 2)
+	total_size = num * n;
+	ptr = malloc(total_size);
+	if (!ptr)
+		return (NULL);
+	p = (unsigned char *)ptr;
+	i = 0;
+	while (i < total_size)
 	{
-		write(2, "Uso: ./so_long mapa.ber\n", 24);
-		return (1);
+		p[i] = 0;
+		i++;
 	}
-	read_map(argv[1], &game);
-	start_game(&game);
-	return (0);
+	return (ptr);
 }
