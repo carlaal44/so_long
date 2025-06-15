@@ -6,11 +6,11 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 10:04:18 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/04 08:58:33 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:19:20 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_isascii(int c)
 {

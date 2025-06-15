@@ -6,11 +6,11 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 11:28:32 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/04 11:50:33 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:20:12 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

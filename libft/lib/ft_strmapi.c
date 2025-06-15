@@ -6,11 +6,11 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:37:44 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/08 14:45:54 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:20:22 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

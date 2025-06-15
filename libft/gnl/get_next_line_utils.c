@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 19:42:45 by carfern2          #+#    #+#             */
-/*   Updated: 2024/12/09 12:41:00 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:30:42 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,4 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		res[j++] = s2[i++];
 	res[j] = 0;
 	return (res);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	unsigned char	*tmp;
-	size_t			i;
-
-	i = 0;
-	tmp = malloc(count * size);
-	if (!tmp)
-		return (NULL);
-	while (i < count * size)
-		tmp[i++] = 0;
-	return (tmp);
 }

@@ -6,11 +6,11 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 09:42:24 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/15 13:54:07 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:20:06 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strdup(const char *s)
 {

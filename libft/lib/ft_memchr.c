@@ -6,11 +6,11 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 08:34:40 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/15 14:45:52 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:19:32 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t len)
 {

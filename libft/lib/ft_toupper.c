@@ -6,11 +6,11 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:00:20 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/04 08:59:38 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:20:41 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_toupper(int c)
 {

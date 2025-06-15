@@ -6,11 +6,11 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:41:35 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/15 14:38:38 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:20:09 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {

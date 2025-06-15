@@ -6,18 +6,18 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 10:50:42 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/04 08:59:15 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:34:15 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	lenght;
+	size_t	i;
 
-	lenght = 0;
-	while (str[lenght] != '\0')
-		lenght++;
-	return (lenght);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

@@ -6,11 +6,15 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/02/18 11:24:31 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/15 16:07:20 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"         // Para las funciones de libft
+#include "get_next_line.h" // Para get_next_line
+#include "ft_printf.h"     // Para ft_printf
+#include "mlx.h"           // Para MinilibX
+#include "so_long.h"       // Tu propia cabecera de so_long, si la tienes
 
 int	main(int argc, char **argv)
 {

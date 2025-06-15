@@ -1,38 +1,65 @@
 NAME = so_long
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I. # Ya hemos arreglado esto para minilibx
 
-# --- NUEVAS LÍNEAS PARA LA LIBFT ---
-# Ruta a tu carpeta de libft
+RED		=	\033[91;1m
+GREEN	=	\033[92;1m
+YELLOW	=	\033[93;1m
+CLEAR	=	\033[0m
+
+CC = cc
+RM = rm -f
+
+CFLAGS = -Wall -Werror -Wextra -g3
+
 LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
-# Incluimos los headers de libft
-CFLAGS += -I$(LIBFT_DIR) # Añade el directorio de headers de libft a la búsqueda
-
-MLX = minilibx-linux/libmlx.a
+GNL_DIR = $(LIBFT_DIR)/gnl
 MLX_DIR = minilibx-linux
 
-SRCS = so_long.c map.c game.c player.c utils.c
+LIBFTA = $(LIBFT_DIR)/libft.a
+MLX_LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+
+SRCS = \
+	so_long.c \
+	map.c \
+	game.c \
+	player.c \
+	utils.c \
+	drawing_utils.c \
+	events.c \
+	$(GNL_DIR)/get_next_line.c \
+	$(GNL_DIR)/get_next_line_utils.c
+
 OBJS = $(SRCS:.c=.o)
 
-all: $(NAME)
+INCLUDES = -I. -Iincludes -I$(LIBFT_DIR)/includes -I$(MLX_DIR)
 
-# Regla para compilar libft si no existe (importante!)
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+all : $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(NAME): $(OBJS) $(LIBFT) # Depende de libft.a
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) -L$(MLX_DIR) -lXext -lX11
+$(NAME) : $(LIBFTA) $(OBJS)
+	@echo "$(YELLOW)=== Compilando y Enlazando $(NAME)... ===$(CLEAR)"
+	@make -sC $(LIBFT_DIR)
+	@make -sC $(MLX_DIR)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFTA) $(MLX_LIBS) -o $(NAME)
+	@echo "$(GREEN)=== $(NAME) Compilado Exitosamente! ===$(CLEAR)"
+
+$(LIBFTA) :
+	@echo "$(YELLOW)=== Construyendo Libft... ===$(CLEAR)"
+	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
-	rm -f $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR) clean # También limpia los objetos de libft
+	@$(RM) $(OBJS)
+	@make clean -sC $(LIBFT_DIR)
+	@make clean -sC $(MLX_DIR)
+	@echo "$(RED)--- Todos los archivos objeto (.o) eliminados. ---$(CLEAR)"
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean # También limpia libft.a
+	@$(RM) $(NAME)
+	@$(RM) $(LIBFTA)
+	@make fclean -sC $(MLX_DIR)
+	@echo "$(RED)--- Todo el proyecto (ejecutables y librerías) eliminado. ---$(CLEAR)"
 
 re: fclean all
+
+.PHONY: all clean fclean re $(LIBFTA)

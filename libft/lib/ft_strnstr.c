@@ -6,11 +6,11 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:21:57 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/11 11:00:49 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:20:27 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

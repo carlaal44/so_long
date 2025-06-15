@@ -6,11 +6,11 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:11:54 by carfern2          #+#    #+#             */
-/*   Updated: 2024/10/15 14:08:32 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/03 09:20:14 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "../includes/libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
