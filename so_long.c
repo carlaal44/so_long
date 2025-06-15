@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:13:45 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/15 19:29:31 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/15 19:56:16 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	game.moves = -1;
 	if (argc != 2)
 	{
 		write(2, "Uso: ./so_long mapa.ber\n", 24);
