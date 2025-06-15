@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 17:04:52 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/15 17:27:36 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/15 18:11:24 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,26 @@
 #include "mlx.h"
 #include "so_long.h"
 
-void	load_game_assets(t_game *game)
+// Implementación de la función auxiliar para cargar una sola imagen
+void	_load_image_asset(t_game *game, void **img_ptr, const char *path, const char *name)
 {
 	int	img_w;
 	int	img_h;
 
-	game->img_ground = mlx_xpm_file_to_image(game->mlx, "suelo.xpm", &img_w, &img_h);
-	if (!game->img_ground)
-		ft_printf("Error: No se pudo cargar suelo.xpm\n");
+	*img_ptr = mlx_xpm_file_to_image(game->mlx, (char *)path, &img_w, &img_h);
+	if (!*img_ptr)
+		ft_printf("Error: No se pudo cargar %s\n", name);
 	else
-		ft_printf("suelo.xpm cargado. Dimensiones: %dx%d\n", img_w, img_h);
+		ft_printf("%s cargado. Dimensiones: %dx%d\n", name, img_w, img_h);
+}
 
-	game->img_wall = mlx_xpm_file_to_image(game->mlx, "pared.xpm", &img_w, &img_h);
-	if (!game->img_wall)
-		ft_printf("Error: No se pudo cargar pared.xpm\n");
-	else
-		ft_printf("pared.xpm cargado. Dimensiones: %dx%d\n", img_w, img_h);
-
-	game->img_player = mlx_xpm_file_to_image(game->mlx, "avatar.xpm", &img_w, &img_h);
-	if (!game->img_player)
-		ft_printf("Error: No se pudo cargar avatar.xpm\n");
-	else
-		ft_printf("avatar.xpm cargado. Dimensiones: %dx%d\n", img_w, img_h);
-
-	game->img_collectible = NULL;
-	game->img_exit = NULL;
+void	load_game_assets(t_game *game)
+{
+	_load_image_asset(game, &game->img_ground, "suelo.xpm", "suelo.xpm");
+	_load_image_asset(game, &game->img_wall, "pared.xpm", "pared.xpm");
+	_load_image_asset(game, &game->img_player, "avatar.xpm", "avatar.xpm");
+	_load_image_asset(game, &game->img_collectible, "fruta.xpm", "fruta.xpm");
+	_load_image_asset(game, &game->img_exit, "exit.xpm", "exit.xpm");
 }
 
 void	draw_tile(t_game *game, int x, int y, char tile_type)
