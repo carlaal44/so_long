@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 16:35:59 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/15 18:04:10 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/15 19:19:05 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	_draw_player_tile(t_game *game, int x, int y)
 {
 	game->player_x = x;
 	game->player_y = y;
-	// No se necesitan offsets, ya que el muñeco es del mismo tamaño que la baldosa.
 	if (game->img_player)
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player,
 			x * TILE_SIZE, y * TILE_SIZE);
@@ -43,7 +42,7 @@ void	_draw_collectible_tile(t_game *game, int x, int y)
 			x * TILE_SIZE, y * TILE_SIZE);
 	else
 		mlx_pixel_put(game->mlx, game->win,
-			x * TILE_SIZE, y * TILE_SIZE, 0x00FF00); // Fixed typo: TILF_SIZE to TILE_SIZE
+			x * TILE_SIZE, y * TILE_SIZE, 0x00FF00);
 }
 
 void	_draw_exit_tile(t_game *game, int x, int y)

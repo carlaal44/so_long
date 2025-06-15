@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 17:04:52 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/15 18:11:24 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/15 19:21:48 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include "mlx.h"
 #include "so_long.h"
 
-// Implementación de la función auxiliar para cargar una sola imagen
-void	_load_image_asset(t_game *game, void **img_ptr, const char *path, const char *name)
+void	_load_image_asset(t_game *game, void **img_ptr,
+		const char *path, const char *name)
 {
 	int	img_w;
 	int	img_h;
@@ -41,9 +41,11 @@ void	load_game_assets(t_game *game)
 void	draw_tile(t_game *game, int x, int y, char tile_type)
 {
 	if (game->img_ground)
-		mlx_put_image_to_window(game->mlx, game->win, game->img_ground, x * TILE_SIZE, y * TILE_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->img_ground, x * TILE_SIZE, y * TILE_SIZE);
 	else
-		mlx_pixel_put(game->mlx, game->win, x * TILE_SIZE, y * TILE_SIZE, 0x000000);
+		mlx_pixel_put(game->mlx, game->win,
+			x * TILE_SIZE, y * TILE_SIZE, 0x000000);
 	_draw_specific_tile(game, x, y, tile_type);
 }
 
@@ -73,7 +75,8 @@ void	start_game(t_game *game)
 		ft_printf("Error: Fallo al inicializar MinilibX.\n");
 		exit(1);
 	}
-	game->win = mlx_new_window(game->mlx, game->width * TILE_SIZE, game->height * TILE_SIZE, "So_long");
+	game->win = mlx_new_window(game->mlx, game->width * TILE_SIZE,
+			game->height * TILE_SIZE, "So_long");
 	if (!game->win)
 	{
 		ft_printf("Error: Fallo al crear la ventana.\n");
@@ -81,11 +84,9 @@ void	start_game(t_game *game)
 	}
 	load_game_assets(game);
 	draw_map(game);
-
 	mlx_key_hook(game->win, move_player, game);
 	mlx_hook(game->win, 17, 0, exit_game, game);
 	mlx_hook(game->win, 9, 1L << 15, handle_render, game);
 	mlx_hook(game->win, 22, 1L << 17, handle_render, game);
-
 	mlx_loop(game->mlx);
 }
