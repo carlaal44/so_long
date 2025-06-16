@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:04:13 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/16 12:21:13 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:43:29 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ void	free_map(t_game *game);
 void	load_game_assets(t_game *game);
 void	draw_map(t_game *game);
 void	draw_tile(t_game *game, int x, int y, char tile_type);
-void	_draw_specific_tile(t_game *game, int x, int y, char tile_type);
+void	_load_image_asset(t_game *game, void **img_ptr,
+			const char *path, const char *name);
 
+void	_draw_specific_tile(t_game *game, int x, int y, char tile_type);
 void	_draw_wall_tile(t_game *game, int x, int y);
 void	_draw_player_tile(t_game *game, int x, int y);
 void	_draw_collectible_tile(t_game *game, int x, int y);
@@ -63,11 +65,7 @@ void	_draw_exit_tile(t_game *game, int x, int y);
 int		exit_game(t_game *game);
 int		handle_render(t_game *game);
 
-void	_load_image_asset(t_game *game, void **img_ptr,
-			const char *path, const char *name);
-
 void	_map_error(t_game *game, const char *msg);
-
 void	_validate_walls(t_game *game);
 
 #endif

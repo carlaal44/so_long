@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:21:41 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/15 19:32:21 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:51:43 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ void	free_map(t_game *game)
 
 	i = 0;
 	while (game->map[i])
-		free(game->map[i++]);
+	{
+		free(game->map[i]);
+		game->map[i] = NULL;
+		i++;
+	}
 	free(game->map);
+	game->map = NULL;
 }
 
 int	handle_render(t_game *game)

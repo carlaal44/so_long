@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 17:04:52 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/15 19:21:48 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/16 14:03:44 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "so_long.h"
 
 void	_load_image_asset(t_game *game, void **img_ptr,
-		const char *path, const char *name)
+			const char *path, const char *name)
 {
 	int	img_w;
 	int	img_h;
@@ -25,17 +25,15 @@ void	_load_image_asset(t_game *game, void **img_ptr,
 	*img_ptr = mlx_xpm_file_to_image(game->mlx, (char *)path, &img_w, &img_h);
 	if (!*img_ptr)
 		ft_printf("Error: No se pudo cargar %s\n", name);
-	else
-		ft_printf("%s cargado. Dimensiones: %dx%d\n", name, img_w, img_h);
 }
 
 void	load_game_assets(t_game *game)
 {
-	_load_image_asset(game, &game->img_ground, "suelo.xpm", "suelo.xpm");
-	_load_image_asset(game, &game->img_wall, "pared.xpm", "pared.xpm");
-	_load_image_asset(game, &game->img_player, "avatar.xpm", "avatar.xpm");
-	_load_image_asset(game, &game->img_collectible, "fruta.xpm", "fruta.xpm");
-	_load_image_asset(game, &game->img_exit, "exit.xpm", "exit.xpm");
+	_load_image_asset(game, &game->img_ground, "images/suelo.xpm", "suelo.xpm");
+	_load_image_asset(game, &game->img_wall, "images/pared.xpm", "pared.xpm");
+	_load_image_asset(game, &game->img_player, "images/avatar.xpm", "avatar.xpm");
+	_load_image_asset(game, &game->img_collectible, "images/fruta.xpm", "fruta.xpm");
+	_load_image_asset(game, &game->img_exit, "images/exit.xpm", "exit.xpm");
 }
 
 void	draw_tile(t_game *game, int x, int y, char tile_type)
@@ -86,7 +84,6 @@ void	start_game(t_game *game)
 	draw_map(game);
 	mlx_key_hook(game->win, move_player, game);
 	mlx_hook(game->win, 17, 0, exit_game, game);
-	mlx_hook(game->win, 9, 1L << 15, handle_render, game);
-	mlx_hook(game->win, 22, 1L << 17, handle_render, game);
+	mlx_hook(game->win, 9, 1L << 5, handle_render, game);
 	mlx_loop(game->mlx);
 }
