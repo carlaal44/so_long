@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:20:36 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/16 12:20:50 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/16 14:13:25 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@ void	_validate_walls(t_game *game)
 	while (x < game->width)
 	{
 		if (game->map[0][x] != '1' || game->map[game->height - 1][x] != '1')
-			_map_error(game, "El mapa no esta rodeado por muros (arriba/abajo).");
+			_map_error(game,
+				"El mapa no esta rodeado por muros (arriba/abajo).");
 		x++;
 	}
 	y = 0;
 	while (y < game->height)
 	{
 		if (game->map[y][0] != '1' || game->map[y][game->width - 1] != '1')
-			_map_error(game, "El mapa no esta rodeado por muros (izquierda/derecha).");
+			_map_error(game,
+				"El mapa no esta rodeado por muros (izquierda/derecha).");
 		y++;
 	}
 }

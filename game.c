@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 17:04:52 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/16 14:03:44 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/16 14:11:46 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	load_game_assets(t_game *game)
 {
 	_load_image_asset(game, &game->img_ground, "images/suelo.xpm", "suelo.xpm");
 	_load_image_asset(game, &game->img_wall, "images/pared.xpm", "pared.xpm");
-	_load_image_asset(game, &game->img_player, "images/avatar.xpm", "avatar.xpm");
-	_load_image_asset(game, &game->img_collectible, "images/fruta.xpm", "fruta.xpm");
+	_load_image_asset(game, &game->img_player, "images/avatar.xpm",
+		"avatar.xpm");
+	_load_image_asset(game, &game->img_collectible, "images/fruta.xpm",
+		"fruta.xpm");
 	_load_image_asset(game, &game->img_exit, "images/exit.xpm", "exit.xpm");
 }
 
