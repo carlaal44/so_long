@@ -25,6 +25,7 @@ SRCS = \
 	utils.c \
 	drawing_utils.c \
 	events.c \
+	map_validation.c \
 	$(GNL_DIR)/get_next_line.c \
 	$(GNL_DIR)/get_next_line_utils.c
 
@@ -57,7 +58,7 @@ clean:
 fclean: clean
 	@$(RM) $(NAME)
 	@$(RM) $(LIBFTA)
-	@make fclean -sC $(MLX_DIR)
+	@make clean -sC $(MLX_DIR) # ¡CAMBIO AQUÍ! Corregido de $(MLMLX_DIR) a $(MLX_DIR)
 	@echo "$(RED)--- Todo el proyecto (ejecutables y librerías) eliminado. ---$(CLEAR)"
 
 re: fclean all

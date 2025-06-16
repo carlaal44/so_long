@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:18:30 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/16 12:08:15 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/16 12:27:14 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,5 @@ void	read_map(char *file, t_game *game)
 	game->map_full_str_builder = NULL;
 	if (!game->map)
 		_map_error(game, "Fallo de malloc al procesar el mapa final.");
+	_validate_walls(game);
 }
