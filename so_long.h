@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:04:13 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/15 19:30:49 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/16 11:55:41 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ typedef struct s_game
 	int		player_y;
 	int		collectables;
 	int		moves;
+
+	int		new_px;
+	int		new_py;
+
+	char	*map_full_str_builder;
 
 	void	*img_player;
 	void	*img_wall;
@@ -60,5 +65,7 @@ int		handle_render(t_game *game);
 
 void	_load_image_asset(t_game *game, void **img_ptr,
 			const char *path, const char *name);
+
+void	_map_error(t_game *game, const char *msg);
 
 #endif
