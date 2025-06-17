@@ -25,7 +25,9 @@ SRCS = \
 	utils.c \
 	drawing_utils.c \
 	events.c \
+	map_helpers.c \
 	map_validation.c \
+	path_validation.c \
 	$(GNL_DIR)/get_next_line.c \
 	$(GNL_DIR)/get_next_line_utils.c
 

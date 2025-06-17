@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:04:13 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/16 13:43:29 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/17 11:38:04 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,25 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include <unistd.h>
 # include "minilibx-linux/mlx.h"
+# include "libft.h"
 
 # define TILE_SIZE 93
+
+typedef struct s_queue_node
+{
+	int	x;
+	int	y;
+}	t_queue_node;
+
+typedef struct s_bfs_data
+{
+	int	front;
+	int	rear;
+	int	i;
+}	t_bfs_data;
 
 typedef struct s_game
 {
@@ -36,6 +51,9 @@ typedef struct s_game
 	int		new_py;
 
 	char	*map_full_str_builder;
+
+	int		path_reachable_collectables;
+	int		path_reachable_exit;
 
 	void	*img_player;
 	void	*img_wall;
@@ -67,5 +85,9 @@ int		handle_render(t_game *game);
 
 void	_map_error(t_game *game, const char *msg);
 void	_validate_walls(t_game *game);
+void	_validate_path(t_game *game);
+
+char	**_create_map_copy(t_game *game);
+void	_free_map_copy(char **map_copy, int height);
 
 #endif

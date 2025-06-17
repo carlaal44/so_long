@@ -6,22 +6,12 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:18:30 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/16 12:53:33 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/17 11:42:52 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "libft.h"
-
-void	_map_error(t_game *game, const char *msg)
-{
-	ft_printf("Error\n%s\n", msg);
-	if (game->map)
-		free_map(game);
-	if (game->map_full_str_builder)
-		free(game->map_full_str_builder);
-	exit(1);
-}
 
 static void	_process_map_character_and_count(t_game *game, char c, int x, int y)
 {
@@ -110,4 +100,5 @@ void	read_map(char *file, t_game *game)
 	if (!game->map)
 		_map_error(game, "Fallo de malloc al procesar el mapa final.");
 	_validate_walls(game);
+	_validate_path(game);
 }
