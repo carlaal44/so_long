@@ -19,14 +19,14 @@ MLX_LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 SRCS = \
 	so_long.c \
-	map.c \
+	maps/map.c \
 	game.c \
 	player.c \
 	utils.c \
 	drawing_utils.c \
 	events.c \
-	map_helpers.c \
-	map_validation.c \
+	maps/map_helpers.c \
+	maps/map_validation.c \
 	path_validation.c \
 	$(GNL_DIR)/get_next_line.c \
 	$(GNL_DIR)/get_next_line_utils.c
