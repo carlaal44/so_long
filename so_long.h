@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:04:13 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/17 11:38:04 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/17 12:02:32 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ typedef struct s_game
 	int		path_reachable_collectables;
 	int		path_reachable_exit;
 
+	int		temp_player_count;
+	int		temp_exit_count;
+
 	void	*img_player;
 	void	*img_wall;
 	void	*img_ground;
@@ -86,7 +89,6 @@ int		handle_render(t_game *game);
 void	_map_error(t_game *game, const char *msg);
 void	_validate_walls(t_game *game);
 void	_validate_path(t_game *game);
-
 char	**_create_map_copy(t_game *game);
 void	_free_map_copy(char **map_copy, int height);
 

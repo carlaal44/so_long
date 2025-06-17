@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:19:08 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/16 11:43:43 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/17 12:00:47 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 static int	_is_valid_player_move(t_game *game)
 {
-	if (game->new_px < 0
-		|| game->new_px >= game->width
-		|| game->new_py < 0
-		|| game->new_py >= game->height)
+	if (game->new_px < 0 || game->new_px >= game->width
+		|| game->new_py < 0 || game->new_py >= game->height)
 		return (0);
 	if (game->map[game->new_py][game->new_px] == '1')
 		return (0);
@@ -27,7 +25,10 @@ static int	_is_valid_player_move(t_game *game)
 		if (game->collectables == 0)
 			return (1);
 		else
+		{
 			ft_printf("Necesitas recolectar todos los items para salir!\n");
+			return (0);
+		}
 	}
 	return (1);
 }
@@ -86,7 +87,9 @@ int	move_player(int keycode, t_game *game)
 	if (old_px == game->new_px && old_py == game->new_py)
 		return (0);
 	if (_is_valid_player_move(game))
+	{
 		_execute_player_action(game, old_px, old_py);
+	}
 	else
 		ft_printf("Movimiento inválido.\n");
 	return (0);
