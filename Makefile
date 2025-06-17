@@ -18,16 +18,16 @@ LIBFTA = $(LIBFT_DIR)/libft.a
 MLX_LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 SRCS = \
-	so_long.c \
-	maps/map.c \
-	game.c \
-	player.c \
-	utils.c \
-	drawing_utils.c \
-	events.c \
-	maps/map_helpers.c \
-	maps/map_validation.c \
-	path_validation.c \
+	src/so_long.c \
+	src/map/map.c \
+	src/game.c \
+	src/player.c \
+	src/utils.c \
+	src/draw/drawing_utils.c \
+	src/events.c \
+	src/map/map_helpers.c \
+	src/map/map_validation.c \
+	src/map/path_validation.c \
 	$(GNL_DIR)/get_next_line.c \
 	$(GNL_DIR)/get_next_line_utils.c
 
