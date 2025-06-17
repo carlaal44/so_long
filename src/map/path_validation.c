@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:32:02 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/17 11:38:21 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/17 15:01:11 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #include "libft.h"
 
 #define MAX_QUEUE_NODES 10000
-
-static const int	g_dx[] = {0, 0, 1, -1};
-static const int	g_dy[] = {1, -1, 0, 0};
 
 static void	_enqueue(t_queue_node *queue, int *rear, int x, int y)
 {
@@ -56,8 +53,8 @@ static void	_perform_bfs_search(t_game *game, char **temp_map,
 		data.i = -1;
 		while (++data.i < 4)
 		{
-			nx = curr.x + g_dx[data.i];
-			ny = curr.y + g_dy[data.i];
+			nx = curr.x + game->dirs.dx[data.i];
+			ny = curr.y + game->dirs.dy[data.i];
 			if (nx < 0 || nx >= game->width || ny < 0 || ny >= game->height
 				|| temp_map[ny][nx] == '1' || temp_map[ny][nx] == 'V')
 				continue ;

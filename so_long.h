@@ -6,7 +6,7 @@
 /*   By: carfern2 <carfern2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:04:13 by carfern2          #+#    #+#             */
-/*   Updated: 2025/06/17 12:02:32 by carfern2         ###   ########.fr       */
+/*   Updated: 2025/06/17 14:58:14 by carfern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ typedef struct s_bfs_data
 	int	i;
 }	t_bfs_data;
 
+typedef struct s_direction_vectors
+{
+	int	dx[4];
+	int	dy[4];
+}	t_direction_vectors;
+
 typedef struct s_game
 {
 	void	*mlx;
@@ -57,6 +63,8 @@ typedef struct s_game
 
 	int		temp_player_count;
 	int		temp_exit_count;
+
+	t_direction_vectors	dirs;
 
 	void	*img_player;
 	void	*img_wall;
@@ -91,5 +99,7 @@ void	_validate_walls(t_game *game);
 void	_validate_path(t_game *game);
 char	**_create_map_copy(t_game *game);
 void	_free_map_copy(char **map_copy, int height);
+
+void	init_game_constants(t_game *game);
 
 #endif

@@ -28,6 +28,7 @@ SRCS = \
 	src/map/map_helpers.c \
 	src/map/map_validation.c \
 	src/map/path_validation.c \
+	src/game_constants.c \
 	$(GNL_DIR)/get_next_line.c \
 	$(GNL_DIR)/get_next_line_utils.c
 
